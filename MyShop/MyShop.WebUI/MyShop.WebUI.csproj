@@ -214,6 +214,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProudctCatgoryManagerController.cs" />
     <Compile Include="Controllers\ProudctMnagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -324,6 +325,10 @@
     <Content Include="Views\ProudctMnager\Create.cshtml" />
     <Content Include="Views\ProudctMnager\Delete.cshtml" />
     <Content Include="Views\ProudctMnager\Edit.cshtml" />
+    <Content Include="Views\ProudctCatgoryManager\Index.cshtml" />
+    <Content Include="Views\ProudctCatgoryManager\Create.cshtml" />
+    <Content Include="Views\ProudctCatgoryManager\Edit.cshtml" />
+    <Content Include="Views\ProudctCatgoryManager\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

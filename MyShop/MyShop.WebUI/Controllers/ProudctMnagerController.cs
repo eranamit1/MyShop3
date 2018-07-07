@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MyShop.Core.Models;
+using MyShop.Core.ViewModels;
 using MyShop.DataAccess.InMemorey;
 
 namespace MyShop.WebUI.Controllers
@@ -11,9 +12,11 @@ namespace MyShop.WebUI.Controllers
     public class ProudctMnagerController : Controller
     {
         ProudctRepostorey context;
+        ProudctCatgoryRepository proudctCatgories;
         public ProudctMnagerController()
         {
             context = new ProudctRepostorey();
+            proudctCatgories = new ProudctCatgoryRepository();
         }
         // GET: ProudctMnager
         public ActionResult Index()
@@ -21,9 +24,11 @@ namespace MyShop.WebUI.Controllers
             List<Proudct> proudcts = context.Collection().ToList();
             return View(proudcts);
         }
-        public ActionResult Create() { 
-            Proudct proudct = new Proudct();
-            return View(proudct);
+        public ActionResult Create() {
+            ProudctManagerViewModel viewModel = new ProudctManagerViewModel();
+            viewModel.proudct = new Proudct();
+            viewModel.proudctCatgories = proudctCatgories.Collection();
+            return View(viewModel);
         }
         [HttpPost]
         public ActionResult Create(Proudct proudct)
@@ -48,7 +53,11 @@ namespace MyShop.WebUI.Controllers
             }
             else
             {
-                return View(proudct);
+                ProudctManagerViewModel viewModel = new ProudctManagerViewModel();
+                viewModel.proudct = proudct;
+                viewModel.proudctCatgories = proudctCatgories.Collection();
+
+                return View(viewModel);
             }
         }
         [HttpPost]
