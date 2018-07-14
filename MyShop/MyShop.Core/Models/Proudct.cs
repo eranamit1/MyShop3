@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MyShop.Core.Models
 {
-   public  class Proudct
+   public  class Proudct : BaseEntity
     {
-        public string Id { get; set; }
+        
         [StringLength(20)]
         [DisplayName("Proudct Name")]
         public string Name { get; set; }
@@ -19,9 +19,6 @@ namespace MyShop.Core.Models
         public decimal Price { get; set; }
         public string Catgorey { get; set; }
         public string Image { get; set; }
-        public Proudct()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
+       
     }
 }

@@ -11,12 +11,12 @@ namespace MyShop.WebUI.Controllers
 {
     public class ProudctMnagerController : Controller
     {
-        ProudctRepostorey context;
-        ProudctCatgoryRepository proudctCatgories;
+        InMemoreyRepositey<Proudct> context;
+        InMemoreyRepositey<ProudctCatgory> proudctCatgories;
         public ProudctMnagerController()
         {
-            context = new ProudctRepostorey();
-            proudctCatgories = new ProudctCatgoryRepository();
+            context = new InMemoreyRepositey<Proudct>();
+            proudctCatgories = new InMemoreyRepositey<ProudctCatgory>();
         }
         // GET: ProudctMnager
         public ActionResult Index()
@@ -39,7 +39,7 @@ namespace MyShop.WebUI.Controllers
             }
             else
             {
-                context.Insert(proudct);
+                context.Insett(proudct);
                 context.Commit();
                 return RedirectToAction("Index");
             }
